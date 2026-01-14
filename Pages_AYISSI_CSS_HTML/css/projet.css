@@ -1,0 +1,674 @@
+/* ========================================= */
+/* DASHBOARD LAYOUT */
+/* ========================================= */
+
+/* Utilisation des variables définies dans style1.css */
+:root {
+    --bright-black: #1A1A1A; /* Noir brillant affiné */
+    --dashboard-bg: #F8F9FA; /* Fond de l'espace principal */
+    --white-bg: #FFFFFF; /* Fond blanc pour les listes */
+    --sidebar-text: #E0E0E0; /* Texte clair dans la sidebar */
+    --accent-purple: #7957D5; /* Violet d'accentuation plus léger et moderne */
+    --active-bg-light: rgba(121, 87, 213, 0.1); /* Fond très léger pour l'actif */
+    --active-line: var(--accent-purple); /* Ligne pour l'actif */
+    --finished-color: #2ECC71; /* Vert pour Terminé */
+    --in-progress-color: #3498DB; /* Bleu pour En cours */
+    --urgent-color: #E74C3C; /* Rouge pour Urgent/Haute Priorité */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05); /* Ombre légère pour les cartes */
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombre au survol */
+}
+
+/* Structure principale */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--dashboard-bg);
+}
+
+/* ========================================= */
+/* MENU HAMBURGER */
+/* ========================================= */
+
+/* Bouton Hamburger */
+.hamburger-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-purple);
+    color: var(--white-bg);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-out;
+}
+
+.hamburger-btn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Overlay pour fermer le menu */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ========================================= */
+/* SIDEBAR (Bandeau Latéral) - AMÉLIORATIONS */
+/* ========================================= */
+
+.sidebar {
+    width: 250px;
+    background-color: var(--bright-black); 
+    color: var(--sidebar-text);
+    padding: 25px 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Bouton de fermeture dans la sidebar */
+.close-sidebar-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--sidebar-text);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-sidebar-btn:hover {
+    color: var(--white-bg);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 30px;
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.logo-image {
+    width: 40px; 
+    height: 40px;
+    object-fit: contain; 
+    margin-right: 10px;
+    transition: transform 0.3s ease-out;
+}
+
+.logo-image:hover {
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.app-name {
+    color: var(--sidebar-text);
+    font-weight: 600;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+    border-left: 5px solid transparent;
+}
+
+.sidebar-nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--white-bg);
+}
+
+/* NOUVEAU STYLE ACTIF : Ligne subtile et fond léger */
+.sidebar-nav li.active {
+    border-left: 5px solid var(--active-line);
+}
+
+.sidebar-nav li.active a {
+    background-color: var(--active-bg-light);
+    color: var(--white-bg);
+    font-weight: 600;
+}
+
+.sidebar-nav li i {
+    margin-right: 15px;
+    width: 20px; 
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* Footer de la Sidebar */
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-logout {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: var(--gray-medium);
+    transition: color 0.3s ease;
+}
+
+.btn-logout:hover {
+    color: var(--accent-purple);
+}
+
+/* États de la sidebar mobile */
+.sidebar.mobile-active {
+    transform: translateX(0) !important;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================= */
+/* MAIN CONTENT & HEADER - AMÉLIORATIONS */
+/* ========================================= */
+
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: none;
+    padding-bottom: 20px;
+}
+
+.dashboard-header h2 {
+    font-size: 2.2em;
+    color: var(--text-dark);
+}
+
+/* NOUVEAU : Barre de recherche intégrée */
+.search-bar-container {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 40px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid var(--gray-light);
+    border-radius: 25px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 3px rgba(121, 87, 213, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-medium);
+    pointer-events: none;
+}
+
+/* Bouton circulaire et menu déroulant (Action Ajouter) */
+.header-actions {
+    position: relative;
+}
+
+.add-btn-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--accent-purple);
+    color: var(--white-bg);
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn-circle:hover {
+    transform: rotate(180deg) scale(1.1);
+    background-color: var(--primary-color);
+}
+
+.add-menu-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: var(--white-bg);
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    z-index: 500;
+    min-width: 200px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+    transform-origin: top right;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.add-menu-dropdown.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.add-menu-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+}
+
+.add-menu-dropdown a i {
+    margin-right: 10px;
+    color: var(--accent-purple);
+}
+
+.add-menu-dropdown a:hover {
+    background-color: var(--dashboard-bg);
+    color: var(--text-dark);
+}
+
+/* ========================================= */
+/* CONTENU PRINCIPAL (Liste de Projets) - AMÉLIORATIONS */
+/* ========================================= */
+
+.content-area {
+    background-color: var(--white-bg); 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+}
+
+/* NOUVEAU : Badges de filtres */
+.project-filters {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-badge {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--gray-dark);
+    background-color: var(--dashboard-bg);
+    transition: all 0.2s ease;
+}
+
+.filter-badge:hover,
+.filter-badge.active {
+    background-color: var(--accent-purple);
+    color: var(--white-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Liste de Projets */
+.project-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--gray-light);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease-out;
+}
+
+.project-item:first-child {
+    padding-top: 0;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.project-item:hover {
+    background-color: rgba(121, 87, 213, 0.03);
+    transform: translateX(0);
+    box-shadow: 0 2px 0 -1px var(--accent-purple);
+}
+
+/* Style spécifique pour la haute priorité (barre latérale animée) */
+.project-item.high-priority {
+    border-left: 5px solid var(--urgent-color);
+    padding-left: 15px;
+    animation: pulseBorder 1.5s infinite alternate;
+}
+
+@keyframes pulseBorder {
+    from { border-left-color: var(--urgent-color); }
+    to { border-left-color: rgba(231, 76, 60, 0.5); }
+}
+
+.project-info {
+    flex-grow: 1;
+}
+
+.project-title {
+    font-size: 1.3em;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.favorite-icon {
+    color: #F39C12;
+    margin-left: 10px;
+    font-size: 0.8em;
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-item:hover .favorite-icon {
+    transform: rotate(10deg) scale(1.2);
+}
+
+.project-desc {
+    font-size: 0.9em;
+    color: var(--gray-dark);
+    margin-bottom: 10px;
+}
+
+/* Barre de Progression */
+.progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background-color: var(--gray-light);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--in-progress-color);
+    border-radius: 3px;
+    transition: width 0.8s ease-out;
+}
+
+.progress-bar.finished {
+    background-color: var(--finished-color);
+}
+
+.progress-bar.urgent {
+    background-color: var(--urgent-color);
+}
+
+.project-details {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 30px;
+}
+
+/* Icônes pour les détails */
+.project-details span {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.project-details i {
+    margin-right: 5px;
+    font-size: 1em;
+}
+
+.project-status.in-progress i {
+    color: var(--in-progress-color);
+}
+
+.project-status.finished i {
+    color: var(--finished-color);
+}
+
+.due-date i {
+    color: var(--gray-medium);
+}
+
+.details-arrow {
+    color: var(--accent-purple);
+    font-size: 1em;
+    transition: transform 0.3s ease-out;
+}
+
+.project-item:hover .details-arrow {
+    transform: translateX(5px) scale(1.1);
+}
+
+/* ========================================= */
+/* MEDIA QUERIES (Adaptation Mobile) */
+/* ========================================= */
+
+@media (max-width: 1024px) {
+    /* Cacher la sidebar par défaut sur tablette */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 280px;
+        transform: translateX(-100%);
+        z-index: 1000;
+        box-shadow: none;
+    }
+
+    /* Afficher le bouton hamburger */
+    .hamburger-btn {
+        display: flex;
+    }
+
+    /* Afficher le bouton de fermeture dans la sidebar */
+    .close-sidebar-btn {
+        display: block;
+    }
+
+    /* Réorganiser le logo area pour inclure le bouton de fermeture */
+    .logo-area {
+        padding-right: 50px;
+    }
+
+    /* Réduire le padding du main content */
+    .main-content {
+        padding: 80px 30px 30px;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Adapter les filtres pour mobile */
+    .project-filters {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-badge {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-nav li {
+        flex: none;
+        text-align: left;
+    }
+
+    .sidebar-nav li a {
+        justify-content: flex-start;
+        padding: 12px 20px;
+    }
+
+    .sidebar-nav li.active {
+        border-left: 5px solid var(--accent-purple);
+        border-bottom: none;
+    }
+
+    .sidebar-footer {
+        display: block;
+    }
+
+    .main-content {
+        padding: 80px 20px 20px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .search-bar-container {
+        width: 100%;
+        margin: 0;
+        order: 3;
+    }
+
+    .header-actions {
+        order: 2;
+    }
+
+    .dashboard-header h2 {
+        margin-bottom: 0;
+        order: 1;
+    }
+
+    .hamburger-btn {
+        top: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2em;
+    }
+
+    .project-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .project-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        margin-left: 0;
+    }
+
+    .details-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        max-width: 100%;
+    }
+
+    .hamburger-btn {
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1em;
+    }
+
+    .main-content {
+        padding: 70px 15px 15px;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .project-filters {
+        gap: 5px;
+    }
+
+    .filter-badge {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+}

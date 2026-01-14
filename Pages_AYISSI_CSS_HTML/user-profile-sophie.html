@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophie Martin Dev | Profil - Yowyob Feedback</title>
+    <link rel="stylesheet" href="css/style1.css"> 
+    <link rel="stylesheet" href="css/feed.css"> 
+    <link rel="stylesheet" href="css/profile.css"> 
+    <link rel="stylesheet" href="css/follow-button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="img/lor1.jpg" alt="Logo Yowyob" class="logo-image">
+                <span class="app-name">Yowyob Feedback</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="profile.html"><i class="fas fa-user-circle icon"></i> Mon Compte</a></li>
+                    <li><a href="#"><i class="fas fa-folder-open icon"></i> Projets</a></li>
+                    <li><a href="#"><i class="fas fa-users icon"></i> Gestion des Membres</a></li>
+                    <li><a href="#"><i class="fas fa-cog icon"></i> Paramètres</a></li>
+                </ul>
+                <div class="sidebar-section" style="margin-top: auto;">
+                    <a href="login.html" class="btn btn-primary btn-block"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-socials">
+                <a href="URL_FACEBOOK" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="URL_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="URL_LINKEDIN" target="_blank" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            
+            <div class="content-header">
+                <div class="header-title">
+                    <button id="toggleSidebar" class="sidebar-toggle" aria-label="Toggle Sidebar"><i class="fas fa-bars"></i></button>
+                    <h1>Profil Utilisateur</h1>
+                </div>
+            </div>
+            
+            <div class="profile-page">
+                
+                <section class="profile-header-ig">
+                    <div class="profile-avatar-container-ig">
+                        <img src="img/photo2.jpg" alt="Photo de profil de Sophie Martin" class="profile-avatar-ig">
+                    </div>
+                    
+                    <div class="profile-info-container-ig">
+                        <div class="profile-top-row-ig">
+                            <h1 class="profile-username-ig">sophie_martin_dev</h1>
+                            <i class="fas fa-check-circle certified-icon-ig"></i>
+                            <!-- Bouton Suivre au lieu de Modifier le profil -->
+                            <button id="mainFollowBtn" class="btn btn-primary edit-profile-btn-ig">
+                                Suivre
+                            </button>
+                            <a href="#" class="settings-icon-ig" aria-label="Plus d'options">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="profile-stats-ig">
+                            <span class="stat-item-ig"><span class="stat-number">127</span> feedbacks</span>
+                            <a href="#" class="stat-item-ig link"><span class="stat-number">3,456</span> abonnés</a>
+                            <a href="#" class="stat-item-ig link"><span class="stat-number">892</span> abonnements</a>
+                        </div>
+                        
+                        <div class="profile-bio-ig">
+                            <p class="profile-name-ig">Sophie Martin | Développeuse Full Stack</p>
+                            <p class="profile-description-ig">Passionnée par le JavaScript et React ⚛️ | Créatrice de contenu tech 💻</p>
+                            <a href="#" class="profile-website-ig">https://sophiemartin.dev</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <hr class="separator-ig">
+
+                <div class="profile-main-content-grid-list">
+                    
+                    <div class="feedbacks-column-ig">
+                        <h3 class="section-title"><i class="fas fa-comment-dots"></i> Feedbacks Publics</h3>
+                        
+                        <div class="feedback-item-card">
+                            <div class="feedback-meta-header">
+                                <img src="img/photo5.jpg" alt="Auteur" class="meta-avatar">
+                                <div class="meta-info">
+                                    <span class="meta-username">ux1122</span>
+                                    <span class="meta-date">Il y a 2 jours</span>
+                                </div>
+                            </div>
+                            <p class="feedback-text">"Sophie a fait un travail remarquable sur l'interface utilisateur. Son attention aux détails est impressionnante!"</p>
+                            <div class="feedback-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i> 34</button>
+                                <button class="action-btn"><i class="fas fa-reply"></i> Répondre</button>
+                            </div>
+                        </div>
+                        
+                        <div class="feedback-item-card highlight">
+                            <div class="feedback-meta-header">
+                                <img src="img/photo6.jpg" alt="Auteur" class="meta-avatar">
+                                <div class="meta-info">
+                                    <span class="meta-username">userXY</span>
+                                    <span class="meta-date">Le 10 Déc. 2025</span>
+                                </div>
+                            </div>
+                            <p class="feedback-text">"Collaboration exceptionnelle sur le projet React. Sophie maîtrise parfaitement les hooks et le state management!"</p>
+                            <div class="feedback-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i> 56</button>
+                                <button class="action-btn"><i class="fas fa-reply"></i> Répondre</button>
+                            </div>
+                        </div>
+
+                        <div class="feedback-item-card">
+                            <div class="feedback-meta-header">
+                                <img src="img/R.jpg" alt="Auteur" class="meta-avatar">
+                                <div class="meta-info">
+                                    <span class="meta-username">Unnamed</span>
+                                    <span class="meta-date">Le 08 Déc. 2025</span>
+                                </div>
+                            </div>
+                            <p class="feedback-text">"Code très propre et bien documenté. Sophie est une développeuse sur qui on peut compter pour livrer un travail de qualité."</p>
+                            <div class="feedback-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i> 42</button>
+                                <button class="action-btn"><i class="fas fa-reply"></i> Répondre</button>
+                            </div>
+                        </div>
+
+                        <div class="feedback-item-card">
+                            <div class="feedback-meta-header">
+                                <img src="img/user_b.jpg" alt="Auteur" class="meta-avatar">
+                                <div class="meta-info">
+                                    <span class="meta-username">Unnamed2</span>
+                                    <span class="meta-date">Le 05 Déc. 2025</span>
+                                </div>
+                            </div>
+                            <p class="feedback-text">"Excellente communication et sens du travail d'équipe. Sophie a su résoudre des problèmes complexes avec élégance."</p>
+                            <div class="feedback-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i> 28</button>
+                                <button class="action-btn"><i class="fas fa-reply"></i> Répondre</button>
+                            </div>
+                        </div>
+
+                        <div class="feedback-item-card">
+                            <div class="feedback-meta-header">
+                                <img src="img/photo5.jpg" alt="Auteur" class="meta-avatar">
+                                <div class="meta-info">
+                                    <span class="meta-username">Unnamed3</span>
+                                    <span class="meta-date">Le 01 Déc. 2025</span>
+                                </div>
+                            </div>
+                            <p class="feedback-text">"Les performances de l'application ont été améliorées de 40% grâce aux optimisations de Sophie. Bravo!"</p>
+                            <div class="feedback-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i> 67</button>
+                                <button class="action-btn"><i class="fas fa-reply"></i> Répondre</button>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="btn btn-secondary btn-block view-all-btn">Voir tous les 127 feedbacks</a>
+                    </div>
+                    
+                    <!-- Colonne droite: Abonnements au lieu de suggestions -->
+                    <div class="discover-column-ig">
+                        <h3 class="section-title"><i class="fas fa-user-friends"></i> Abonnés</h3>
+                        
+                        <div class="suggestion-card-ig">
+                            <a href="user-profile-marc.html" class="suggestion-link">
+                                <img src="img/photo3.png" alt="marc_lefevre_ux" class="suggestion-avatar-ig">
+                                <div class="suggestion-info-ig">
+                                    <span class="suggestion-username-ig">marc_lefevre_ux</span>
+                                    <span class="suggestion-context-ig">Designer UX/UI</span>
+                                </div>
+                            </a>
+                            <button class="btn btn-secondary btn-follow-ig">suivre</button>
+                        </div>
+                        
+                        <div class="suggestion-card-ig">
+                            <a href="#" class="suggestion-link">
+                                <img src="img/photo4.png" alt="Henry_Chevalier" class="suggestion-avatar-ig">
+                                <div class="suggestion-info-ig">
+                                    <span class="suggestion-username-ig">Henry_Chevalier</span>
+                                    <span class="suggestion-context-ig">Tech Lead</span>
+                                </div>
+                            </a>
+                            <button class="btn btn-secondary btn-follow-ig">suivre</button>
+                        </div>
+                    
+                        <div id="moreSuggestions" class="hidden-suggestions">
+                            <div class="suggestion-card-ig">
+                                <a href="#" class="suggestion-link">
+                                    <img src="img/photo5.jpg" alt="Celine Alex" class="suggestion-avatar-ig">
+                                    <div class="suggestion-info-ig">
+                                        <span class="suggestion-username-ig">Celine Alex</span>
+                                        <span class="suggestion-context-ig">Product Manager</span>
+                                    </div>
+                                </a>
+                                <button class="btn btn-secondary btn-follow-ig">suivre</button>
+                            </div>
+                            
+                            <div class="suggestion-card-ig">
+                                <a href="#" class="suggestion-link">
+                                    <img src="img/photo6.jpg" alt="ALI Baba Rabdal" class="suggestion-avatar-ig">
+                                    <div class="suggestion-info-ig">
+                                        <span class="suggestion-username-ig">
+                                            ALI Baba Rabdal
+                                            <i class="fas fa-check-circle certified-icon-ig"></i>
+                                        </span>
+                                        <span class="suggestion-context-ig">DevOps Engineer</span>
+                                    </div>
+                                </a>
+                                <button class="btn btn-secondary btn-follow-ig">suivre</button>
+                            </div>
+
+                            <div class="suggestion-card-ig">
+                                <a href="#" class="suggestion-link">
+                                    <img src="img/photo7.jpg" alt="Hottofon Bismark" class="suggestion-avatar-ig">
+                                    <div class="suggestion-info-ig">
+                                        <span class="suggestion-username-ig">Hottofon Bismark</span>
+                                        <span class="suggestion-context-ig">Backend Developer</span>
+                                    </div>
+                                </a>
+                                <button class="btn btn-secondary btn-follow-ig">suivre</button>
+                            </div>
+
+                            <div class="suggestion-card-ig">
+                                <a href="#" class="suggestion-link">
+                                    <img src="img/photo8.jpg" alt="AYISSI NGONO" class="suggestion-avatar-ig">
+                                    <div class="suggestion-info-ig">
+                                        <span class="suggestion-username-ig">
+                                            AYISSI NGONO
+                                            <i class="fas fa-check-circle certified-icon-ig"></i>
+                                        </span>
+                                        <span class="suggestion-context-ig">Mobile Developer</span>
+                                    </div>
+                                </a>
+                                <button class="btn btn-secondary btn-follow-ig">suivre</button>
+                            </div>
+
+                            <div class="suggestion-card-ig">
+                                <a href="profile.html" class="suggestion-link">
+                                    <img src="img/henri_avatar.png" alt="henri_fofack_dev" class="suggestion-avatar-ig">
+                                    <div class="suggestion-info-ig">
+                                        <span class="suggestion-username-ig">
+                                            henri_fofack_dev
+                                            <i class="fas fa-check-circle certified-icon-ig"></i>
+                                        </span>
+                                        <span class="suggestion-context-ig">CEO Yowyob</span>
+                                    </div>
+                                </a>
+                                <button class="btn btn-secondary btn-follow-ig">suivre</button>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="view-all-link-ig" id="toggleSuggestions">Voir tous les 892 abonnements</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </main>
+    </div>
+    
+    <script src="js/feed.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/follow-toggle.js"></script>
+</body>
+</html>

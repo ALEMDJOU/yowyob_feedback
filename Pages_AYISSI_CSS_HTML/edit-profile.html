@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le Profil | Yowyob Feedback</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/feed.css">
+    <link rel="stylesheet" href="css/edit-profile.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="img/lor1.jpg" alt="Logo Yowyob" class="logo-image">
+                <span class="app-name">Yowyob Feedback</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li class="active"><a href="profile.html"><i class="fas fa-user-circle icon"></i> Mon Compte</a></li>
+                    <li><a href="#"><i class="fas fa-folder-open icon"></i> Projets</a></li>
+                    <li><a href="GestionMembre.html"><i class="fas fa-users icon"></i> Gestion des Membres</a></li>
+                    <li><a href="#"><i class="fas fa-cog icon"></i> Paramètres</a></li>
+                   
+                </ul>
+                <div class="sidebar-section" style="margin-top: auto;">
+                <a href="login.html" class="btn btn-primary btn-block"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-socials">
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Modifier Mon Profil</h2>
+                <button class="sidebar-toggle" id="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </header>
+
+            <section class="edit-profile-section">
+                
+                <form id="profile-edit-form" class="edit-form-card">
+                    
+                    <h3>Informations Générales</h3>
+                    
+                    <div class="form-group avatar-upload-group">
+                        <img src="img/henri_avatar.png" alt="Photo de profil actuelle" class="current-avatar">
+                        <div>
+                            <label for="profile_photo">Changer la Photo</label>
+                            <input type="file" id="profile_photo" name="profile_photo" accept="image/*">
+                        </div>
+                    </div>
+                     
+                    <div class="form-group">
+                     <label for="first_name">Prénom</label>
+                     <input type="text" id="first_name" name="first_name" value="Henri" required>
+                    </div>
+                    
+                    <div class="form-group">
+                     <label for="last_name">Nom</label>
+                     <input type="text" id="last_name" name="last_name" value="Duval" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="username">Nom d'utilisateur</label>
+                        <input type="text" id="username" name="username" value="Henri_Duval_Dev" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse Email</label>
+                        <input type="email" id="email" name="email" value="henri.duval@yowyob.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact">Contact (Téléphone)</label>
+                        <input type="tel" id="contact" name="contact" value="+33 6 12 34 56 78">
+                    </div>
+
+                    <div class="form-group">
+                         <label for="domaine">Domaine</label>
+                         <input type="text" id="domaine" name="domaine" value="Développement Full Stack" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Biographie</label>
+                        <textarea id="bio" name="bio" rows="4">Développeur Full Stack passionné par les systèmes de feedback utilisateur et la création d'interfaces intuitives.</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary large-btn">Enregistrer les Modifications</button>
+
+                </form>
+                
+                <form id="password-edit-form" class="edit-form-card password-card">
+                    
+                    <h3>Changer de Mot de Passe</h3>
+
+                    <div class="form-group">
+                        <label for="current_password">Mot de Passe Actuel</label>
+                        <input type="password" id="current_password" name="current_password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new_password">Nouveau Mot de Passe</label>
+                        <input type="password" id="new_password" name="new_password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm_password">Confirmer Nouveau Mot de Passe</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-secondary large-btn">Mettre à Jour le Mot de Passe</button>
+                    
+                </form>
+
+            </section>
+        </main>
+        
+    </div>
+    
+    <script src="js/feed.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
